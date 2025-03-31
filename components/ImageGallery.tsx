@@ -45,9 +45,9 @@ export default function ImageGallery() {
   return (
     <View style={styles.container}>
        <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 10,marginTop:50 }}>
-       <Text style={[styles.text, theme === "dark" ? styles.darkText : styles.lightText]}>
-           Selected Images: {selectedImages.length}
-        </Text>
+          <Text style={[styles.text, theme === "dark" ? styles.darkText : styles.lightText]}>
+              Selected Images: {selectedImages.length}
+            </Text>
           <Button title={`Toggle Mode: ${selectionMode.toUpperCase()}`} onPress={() => dispatch(toggleSelectionMode())} />
       </View>
       <FlatList
@@ -65,7 +65,7 @@ export default function ImageGallery() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 6, padding: 10 },
+  container: { flex: 6, padding: 10},
   image: { width: 100, height: 100, margin: 5 },
   selected: { borderColor: "#9063CD", borderWidth: 3 },
   lightText: {

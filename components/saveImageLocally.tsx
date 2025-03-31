@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 import * as FileSystem from "expo-file-system";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { clearSelection, deselectImage } from "@/redux/imageSlice";
 
 export default function SaveImagesLocally() {
@@ -16,7 +16,7 @@ export default function SaveImagesLocally() {
   const [progress, setProgress] = useState(0);
   const [saving, setSaving] = useState(false);
   const [savedFolderPath, setSavedFolderPath] = useState("");
-
+  const dispatch = useDispatch(); // Import useDispatch to clear selection after saving
   const theme = useColorScheme(); // Get current theme (light/dark)
 
   const saveImages = async () => {
@@ -44,7 +44,7 @@ export default function SaveImagesLocally() {
 
     setSaving(false);
     setSavedFolderPath(folderUri);
-
+    dispatch(clearSelection()); // Clear selection after saving
    
   };
 
